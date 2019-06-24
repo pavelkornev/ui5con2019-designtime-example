@@ -1,0 +1,45 @@
+.sapUiDemoappsDemokitRtaFreestyleRatingAndCount .sapMRI {
+	margin: 0;
+	}
+
+
+/*.sapUiDtOverlay {*/
+	/*background: rgba(0, 14, 236, 0.05);*/
+/*}*/
+
+
+
+@keyframes poof {
+	0% { background-position: 0 0; }
+	20% { background-position: 0 0; }
+	21% { background-position: 0 25%; }
+	40% { background-position: 0 25%; }
+	41% { background-position: 0 50%; }
+	60% { background-position: 0 50%; }
+	61% { background-position: 0 75%; }
+	80% { background-position: 0 75%; }
+	81% { background-position: 0 100%; }
+	99% { background-position: 0 100%; }
+	100% { background-position: 0 200%; }
+}
+
+.sapUiDtOverlayPoof {
+	background: #fff;
+}
+
+.sapUiDtOverlayPoof::before {
+	position: absolute;
+	top: -100px;
+	bottom: -100px;
+	width: 128px;
+	height: 128px;
+	left: 50%;
+	margin-left: -64px;
+	right: 0;
+	content: '';
+	background: url(/designtime/plugin/img/poof.png) no-repeat 0 0;
+	animation: poof 250ms;
+	animation-fill-mode: forwards;
+	background-size: 128px 640px;
+	border: none !important;
+}
