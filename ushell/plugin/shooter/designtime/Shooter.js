@@ -8,24 +8,22 @@ sap.ui.define([
 function(Plugin) {
 	"use strict";
 
-
-	var Shooter = Plugin.extend("custom.designtime.plugin.Shooter", {});
+	var Shooter = Plugin.extend("custom.ushell.plugin.shooter.designtime.Shooter", {});
 
 	Shooter.prototype.registerElementOverlay = function (oOverlay) {
-		oOverlay.attachBrowserEvent('dblclick', this._onClick, oOverlay);
+		oOverlay.attachBrowserEvent("dblclick", this._onClick, oOverlay);
 	};
 
 	Shooter.prototype.deregisterElementOverlay = function (oOverlay) {
-		oOverlay.detachBrowserEvent('dblclick', this._onClick, oOverlay);
+		oOverlay.detachBrowserEvent("dblclick", this._onClick, oOverlay);
 	};
 
 	Shooter.prototype._onClick = function (oEvent) {
 		this.setSelected(false);
 		this.addStyleClass("sapUiDtOverlayPoof");
-		setTimeout(function () {
+		this.attachBrowserEvent("animationend", function () {
 			this.getElement().setVisible(false);
-		}.bind(this), 250);
-
+		}, this);
 		oEvent.stopPropagation();
 	};
 

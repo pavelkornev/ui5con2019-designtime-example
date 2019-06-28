@@ -5,7 +5,7 @@
 		defaultRenderer : "fiori2",
 		bootstrapPlugins: {
 			"DesignTime": {
-				component: "custom.ushell.plugin.designtime"
+				component: "custom.ushell.plugin.shooter"
 			}
 		},
 		renderers: {
@@ -24,14 +24,14 @@
 				"applicationType": "URL",
 				"url": "app1/",
 				"description": "Freestyle app",
-				"title": "App1"
+				"title": "My app"
 			},
 			"app-2": {
 				"additionalInformation": "SAPUI5.Component=sap.ui.demoapps.rta.fiorielements",
 				"applicationType": "URL",
 				"url": "app2/",
 				"description": "Fiori Elements app",
-				"title": "App2"
+				"title": "Other app"
 			}
 		},
 		services: {

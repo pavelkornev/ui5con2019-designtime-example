@@ -2,35 +2,35 @@
 /*global jQuery, sap, window, Promise */
 
 sap.ui.define([
-	"sap/ushell/plugins/BaseRTAPlugin",
-	"sap/m/MessageBox",
-	"sap/ui/fl/Utils",
-	"sap/ui/fl/EventHistory",
+	"sap/ui/core/IconPool",
 	"sap/ui/core/Component"
 ], function (
-	BaseRTAPlugin,
-	MessageBox,
-	FlexUtils,
-	EventHistory,
+	IconPool,
 	Component
 ) {
 	"use strict";
 
-	var RTAPlugin = Component.extend("custom.ushell.plugin.designtime.Component", {
-		sType: "rta-personalize",
-
+	var RTAPlugin = Component.extend("custom.ushell.plugin.shooter.Component", {
 		metadata: {
-			manifest: "json"
+			manifest: "json",
+			// includes: ["designtime/shooter.css"],
 		},
-
 		init: function () {
+			// Load & register BusinessSuiteInAppSymbols font (required for the button icon)
+			var oBusinessSuiteConfig = {
+				fontFamily: "BusinessSuiteInAppSymbols",
+				fontURI: sap.ui.require.toUrl("sap/ushell/themes/base/fonts/")
+			};
+			IconPool.registerFont(oBusinessSuiteConfig);
+
+
 			this.mConfig = {
 				sComponentName: "custom.ushell.plugin.designtime",
 				layer: "USER",
 				developerMode: false,
 				id: "DesignTime-Button",
 				text: "Shoot them up!",
-				icon: "sap-icon://BusinessSuiteInAppSymbols/icon-face-devastated",
+				icon: "sap-icon://BusinessSuiteInAppSymbols/icon-fire",
 				// sap-icon://crossed-line-chart
 				visible: false
 			};
@@ -164,7 +164,7 @@ sap.ui.define([
 					"sap/ui/dt/DesignTime",
 					"sap/ui/dt/plugin/MouseSelection",
 					"sap/ui/dt/plugin/ControlDragDrop",
-					"custom/designtime/plugin/Shooter"
+					"custom/ushell/plugin/shooter/designtime/Shooter"
 				], function (
 					DesignTime,
 					MouseSelection,
